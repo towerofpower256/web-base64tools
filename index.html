@@ -1,0 +1,85 @@
+<!doctype html>
+<!-- 
+Good ideas on Base64 in Javascript.
+https://developer.mozilla.org/en-US/docs/Glossary/Base64
+
+Notes on encoding / decoding UTF-8
+https://stackoverflow.com/questions/30106476/using-javascripts-atob-to-decode-base64-doesnt-properly-decode-utf-8-strings
+
+Reading a file and base64-ing it
+https://stackoverflow.com/questions/36280818/how-to-convert-file-to-base64-in-javascript
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="A set of Base64 tools.">
+    <meta name="author" content="towerofpower256">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+
+    <title>Dave's Base64 Tools</title>
+</head>
+
+<body>
+    <div class="section">
+        <h3>Encode Base64</h3>
+        <p>
+            <div>Input</div>
+            <textarea id="strencode-input"></textarea>
+        </p>
+        <button
+            onclick="document.getElementById('strencode-output').value = b64EncodeUnicode(document.getElementById('strencode-input').value)">Encode</button>
+        
+        <p>
+            <div>Output</div>
+            <textarea id="strencode-output" readonly></textarea>
+        </p>
+    </div>
+
+    <div class="section">
+        <h3>Decode Base64</h3>
+        <p>
+            <div>Input</div>
+            <textarea id="strdecode-input"></textarea>
+        </p>
+        <button
+            onclick="document.getElementById('strdecode-output').value = b64DecodeUnicode(document.getElementById('strdecode-input').value)">Decode</button>
+        <p>
+            <div>Output</div>
+            <textarea id="strdecode-output" readonly></textarea>
+        </p>
+    </div>
+
+    <div class="section">
+        <h3>Base64 a file</h3>
+        
+        <p>
+            <div>Input</div>
+            <input id="fileencode-input" type="file" onchange="b64FileAsync(this.files[0]).then(function(result){document.getElementById('fileencode-output').value = getContentFromDataURL(result);});"></input>
+        </p>
+        <p>
+            <div>Output</div>
+            <textarea id="fileencode-output" readonly></textarea>
+        </p>
+    </div>
+
+    <div class="section">
+        <h3>View Base64 image</h3>
+        <p>
+            <div>Input</div>
+            <textarea id="imgdecode-input"></textarea>
+        </p>
+        <button
+            onclick="document.getElementById('imgdecode-output').src = 'data:image/png;base64,'+document.getElementById('imgdecode-input').value">Read</button>
+        <p>
+            <div>Image</div>
+            <img id="imgdecode-output" src="" style="border: solid 1px black; min-width: 20px; min-height: 20px; max-width: 100%;"/>
+        </p>
+    </div>
+
+    <script src="./scripts.js"></script>
+</body>
+
+</html>
