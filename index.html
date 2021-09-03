@@ -17,32 +17,41 @@ https://stackoverflow.com/questions/36280818/how-to-convert-file-to-base64-in-ja
     <meta name="author" content="towerofpower256">
 
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="logo.png" />
 
     <title>Dave's Base64 Tools</title>
 </head>
 
 <body>
     <header class="page-header">
-        <div class="page-header-title">Dave's Base64 Tools</div>
+        <img class="page-header-logo" src="logo.png" style="max-height: 40px; max-width: 40px;"></img>
+        <div class="page-header-title">
+            Dave's Base64 Tools
+        </div>
     </header>
 
-    <div>
-        <p>Here are some tools for working with base64 values that I use often.</p>
-        <p>All of them are purely client-side Javascript and work from your computer. No data is sent anywhere else or to any other servers.</p>
-    </div>
+    
 
     <div class="page-content">
-
+        <div class="info-blurb">
+            <p>Here are some tools for working with base64 values that I use often.</p>
+            <p>All of them are purely client-side Javascript and work from your computer. No data is sent anywhere else or
+                to any other servers.</p>
+        </div>
 
         <div class="tab-select-container">
-            <span class="tab-select active" id="tab-select-encodestring" onclick="changeTab('encodestring')">Encode
-                string</span>
-            <span class="tab-select" id="tab-select-decodestring" onclick="changeTab('decodestring')">Decode
-                string</span>
-            <span class="tab-select" id="tab-select-encodefile" onclick="changeTab('encodefile')">Encode file</span>
-            <span class="tab-select" id="tab-select-viewbase64image" onclick="changeTab('viewbase64image')">View Base64
-                image</span>
+            <div class="tab-select active" id="tab-select-encodestring" onclick="changeTab('encodestring')">
+                <span>Encode string</span>
+            </div>
+            <div class="tab-select" id="tab-select-decodestring" onclick="changeTab('decodestring')">
+                <span>Decode string</span>
+            </div>
+            <div class="tab-select" id="tab-select-encodefile" onclick="changeTab('encodefile')">
+                <span>Encode file</span>
+            </div>
+            <div class="tab-select" id="tab-select-viewbase64image" onclick="changeTab('viewbase64image')">
+                <span>View Base64 image</span>
+            </div>
         </div>
         <div class="tab" id="tab-encodestring">
             <h3>Encode Base64</h3>
@@ -102,6 +111,14 @@ https://stackoverflow.com/questions/36280818/how-to-convert-file-to-base64-in-ja
             </p>
         </div>
     </div>
+
+    <footer class="page-footer">
+        <span>By David McDonald 2021 |
+            <a href="http://www.davidmac.pro" target="_blank">Web</a> |
+            <a href="https://github.com/towerofpower256" target="_blank">Github</a>
+        </span>
+    </footer>
+
 
     <script src="./scripts.js"></script>
 </body>

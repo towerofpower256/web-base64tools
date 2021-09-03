@@ -10,7 +10,10 @@ function b64EncodeUnicode(str) {
 
 function b64DecodeUnicode(str) {
     // Going backwards: from bytestream, to percent-encoding, to original string.
-    return decodeURIComponent(atob(str).split('').map(function (c) {
+    return decodeURIComponent(atob(str)
+        .replace(/\W/g, "")
+        .split('')
+        .map(function (c) {
         return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
     }).join(''));
 }
@@ -48,7 +51,6 @@ function changeTab(tabName) {
     for (var i=0; i < tabSelectors.length; i++) {
         var tabSelectorElem = tabSelectors[i];
         var tabSelectorId = tabSelectorElem.id;
-        console.log("tab-select-"+tabName)
         if (tabSelectorId == "tab-select-"+tabName) {
             tabSelectorElem.classList.add("active");
         } else {
