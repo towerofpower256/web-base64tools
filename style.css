@@ -6,10 +6,11 @@ textarea {
     min-height: 6em;
 }
 
-.section {
+.tab {
     border: solid 2px black;
     margin: 5px;
     padding: 10px;
+    background-color: white;
 }
 
 button {
@@ -17,6 +18,55 @@ button {
     height: 3em;
 }
 
+.tab-select-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.tab-select {
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: bold;
+    border-right: solid 2px black;
+}
+
+.tab-select-container span:last-child {
+    border-right: none;
+}
+
+.tab-select:hover {
+    color: blue;
+    cursor: pointer;
+}
+
+.tab-select.active {
+    background-color: lightblue;
+}
+
 body {
     font-family:Arial, Helvetica, sans-serif;
+    margin: 0;
+    
+}
+
+header.page-header {
+    width: 100%;
+    padding: 10px;
+    background: lightgray;
+    border-bottom: solid 2px black;
+    color: black;
+    margin-bottom: 30px;
+}
+
+.page-header-title {
+    color: black;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.page-content {
+    position: fixed;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }

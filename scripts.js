@@ -32,3 +32,27 @@ function getContentFromDataURL(a) {
     // data:text/xml;base64,
     return a.substring(a.indexOf(",") + 1)
 }
+
+/*
+ * DIY tab functionality
+ */
+function changeTab(tabName) {
+    var tabs = document.getElementsByClassName("tab");
+    for (var i=0; i < tabs.length; i++) {
+        var tabElem = tabs[i];
+        var tabId = tabElem.id;
+        tabElem.style.display = (tabId == "tab-"+tabName ? "block" : "none");
+    }
+
+    var tabSelectors = document.getElementsByClassName("tab-select");
+    for (var i=0; i < tabSelectors.length; i++) {
+        var tabSelectorElem = tabSelectors[i];
+        var tabSelectorId = tabSelectorElem.id;
+        console.log("tab-select-"+tabName)
+        if (tabSelectorId == "tab-select-"+tabName) {
+            tabSelectorElem.classList.add("active");
+        } else {
+            tabSelectorElem.classList.remove("active");
+        }
+    }
+}

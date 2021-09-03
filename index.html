@@ -23,60 +23,84 @@ https://stackoverflow.com/questions/36280818/how-to-convert-file-to-base64-in-ja
 </head>
 
 <body>
-    <div class="section">
-        <h3>Encode Base64</h3>
-        <p>
+    <header class="page-header">
+        <div class="page-header-title">Dave's Base64 Tools</div>
+    </header>
+
+    <div>
+        <p>Here are some tools for working with base64 values that I use often.</p>
+        <p>All of them are purely client-side Javascript and work from your computer. No data is sent anywhere else or to any other servers.</p>
+    </div>
+
+    <div class="page-content">
+
+
+        <div class="tab-select-container">
+            <span class="tab-select active" id="tab-select-encodestring" onclick="changeTab('encodestring')">Encode
+                string</span>
+            <span class="tab-select" id="tab-select-decodestring" onclick="changeTab('decodestring')">Decode
+                string</span>
+            <span class="tab-select" id="tab-select-encodefile" onclick="changeTab('encodefile')">Encode file</span>
+            <span class="tab-select" id="tab-select-viewbase64image" onclick="changeTab('viewbase64image')">View Base64
+                image</span>
+        </div>
+        <div class="tab" id="tab-encodestring">
+            <h3>Encode Base64</h3>
+            <p>
             <div>Input</div>
             <textarea id="strencode-input"></textarea>
-        </p>
-        <button
-            onclick="document.getElementById('strencode-output').value = b64EncodeUnicode(document.getElementById('strencode-input').value)">Encode</button>
-        
-        <p>
+            </p>
+            <button
+                onclick="document.getElementById('strencode-output').value = b64EncodeUnicode(document.getElementById('strencode-input').value)">Encode</button>
+
+            <p>
             <div>Output</div>
             <textarea id="strencode-output" readonly></textarea>
-        </p>
-    </div>
+            </p>
+        </div>
 
-    <div class="section">
-        <h3>Decode Base64</h3>
-        <p>
+        <div class="tab" id="tab-decodestring" style="display: none;">
+            <h3>Decode Base64</h3>
+            <p>
             <div>Input</div>
             <textarea id="strdecode-input"></textarea>
-        </p>
-        <button
-            onclick="document.getElementById('strdecode-output').value = b64DecodeUnicode(document.getElementById('strdecode-input').value)">Decode</button>
-        <p>
+            </p>
+            <button
+                onclick="document.getElementById('strdecode-output').value = b64DecodeUnicode(document.getElementById('strdecode-input').value)">Decode</button>
+            <p>
             <div>Output</div>
             <textarea id="strdecode-output" readonly></textarea>
-        </p>
-    </div>
+            </p>
+        </div>
 
-    <div class="section">
-        <h3>Base64 a file</h3>
-        
-        <p>
+        <div class="tab" id="tab-encodefile" style="display: none;">
+            <h3>Base64 a file</h3>
+
+            <p>
             <div>Input</div>
-            <input id="fileencode-input" type="file" onchange="b64FileAsync(this.files[0]).then(function(result){document.getElementById('fileencode-output').value = getContentFromDataURL(result);});"></input>
-        </p>
-        <p>
+            <input id="fileencode-input" type="file"
+                onchange="b64FileAsync(this.files[0]).then(function(result){document.getElementById('fileencode-output').value = getContentFromDataURL(result);});"></input>
+            </p>
+            <p>
             <div>Output</div>
             <textarea id="fileencode-output" readonly></textarea>
-        </p>
-    </div>
+            </p>
+        </div>
 
-    <div class="section">
-        <h3>View Base64 image</h3>
-        <p>
+        <div class="tab" id="tab-viewbase64image" style="display: none;">
+            <h3>View Base64 image</h3>
+            <p>
             <div>Input</div>
             <textarea id="imgdecode-input"></textarea>
-        </p>
-        <button
-            onclick="document.getElementById('imgdecode-output').src = 'data:image/png;base64,'+document.getElementById('imgdecode-input').value">Read</button>
-        <p>
+            </p>
+            <button
+                onclick="document.getElementById('imgdecode-output').src = 'data:image/png;base64,'+document.getElementById('imgdecode-input').value">Read</button>
+            <p>
             <div>Image</div>
-            <img id="imgdecode-output" src="" style="border: solid 1px black; min-width: 20px; min-height: 20px; max-width: 100%;"/>
-        </p>
+            <img id="imgdecode-output" src=""
+                style="border: solid 1px black; min-width: 20px; min-height: 20px; max-width: 100%;" />
+            </p>
+        </div>
     </div>
 
     <script src="./scripts.js"></script>
