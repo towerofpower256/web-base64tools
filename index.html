@@ -60,7 +60,7 @@ https://stackoverflow.com/questions/36280818/how-to-convert-file-to-base64-in-ja
             <textarea id="strencode-input"></textarea>
             </p>
             <button
-                onclick="document.getElementById('strencode-output').value = b64EncodeUnicode(document.getElementById('strencode-input').value)">Encode</button>
+                onclick="myFormEncodeString()">Encode</button>
 
             <p>
             <div>Output</div>
@@ -75,7 +75,7 @@ https://stackoverflow.com/questions/36280818/how-to-convert-file-to-base64-in-ja
             <textarea id="strdecode-input"></textarea>
             </p>
             <button
-                onclick="document.getElementById('strdecode-output').value = b64DecodeUnicode(document.getElementById('strdecode-input').value)">Decode</button>
+                onclick="myFormDecodeString()">Decode</button>
             <p>
             <div>Output</div>
             <textarea id="strdecode-output" readonly></textarea>
@@ -88,7 +88,7 @@ https://stackoverflow.com/questions/36280818/how-to-convert-file-to-base64-in-ja
             <p>
             <div>Input</div>
             <input id="fileencode-input" type="file"
-                onchange="b64FileAsync(this.files[0]).then(function(result){document.getElementById('fileencode-output').value = getContentFromDataURL(result);});"></input>
+                onchange="myFormEncodeFile(this)"></input>
             </p>
             <p>
             <div>Output</div>
@@ -103,7 +103,7 @@ https://stackoverflow.com/questions/36280818/how-to-convert-file-to-base64-in-ja
             <textarea id="imgdecode-input"></textarea>
             </p>
             <button
-                onclick="document.getElementById('imgdecode-output').src = 'data:image/png;base64,'+document.getElementById('imgdecode-input').value">Read</button>
+                onclick="myFormShowImage()">Read</button>
             <p>
             <div>Image</div>
             <img id="imgdecode-output" src=""

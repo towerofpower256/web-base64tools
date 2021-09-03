@@ -1,4 +1,41 @@
+function myFormEncodeString() {
+    var r = "";
+    try {
+        var r = b64EncodeUnicode(document.getElementById('strencode-input').value);
+        
+    } catch (ex) {
+        r = ""+ex;
+    }
+    document.getElementById('strencode-output').value = r;
+}
 
+function myFormDecodeString() {
+    var r = "";
+    try {
+        r = b64DecodeUnicode(document.getElementById('strdecode-input').value);
+    } catch (ex) {
+        r = ""+ex;
+    }
+    document.getElementById('strdecode-output').value = r;
+}
+
+function myFormShowImage() {
+    document.getElementById('imgdecode-output').src = 'data:image/png;base64,'+document.getElementById('imgdecode-input').value
+}
+
+function myFormEncodeFile(input) {
+    var outputEl = document.getElementById('fileencode-output');
+    outputEl.value = "Encoding...";
+    try {
+        b64FileAsync(input.files[0])
+        .then(function(result){
+            outputEl.value = getContentFromDataURL(result);
+        });
+    } catch (ex) {
+        outputEl.value(ex);
+    }
+    
+}
 
 // https://stackoverflow.com/questions/30106476/using-javascripts-atob-to-decode-base64-doesnt-properly-decode-utf-8-strings
 
