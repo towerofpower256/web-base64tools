@@ -24,18 +24,24 @@ https://stackoverflow.com/questions/36280818/how-to-convert-file-to-base64-in-ja
 
 <body>
     <header class="page-header">
-        <img class="page-header-logo" src="logo.png" style="max-height: 40px; max-width: 40px;"></img>
-        <div class="page-header-title">
-            Dave's Base64 Tools
+        <img class="page-header-logo" src="logo.png" style="padding-right: 15px; max-height: 40px; max-width: 40px;"></img>
+        <div>
+            <div class="page-header-title">Dave's Base64 Tools</div>
+            <div>By David McDonald 2021 |
+                <a href="http://www.davidmac.pro" target="_blank">Website</a> |
+                <a href="https://github.com/towerofpower256" target="_blank">Github</a>
+            </div>
+
         </div>
     </header>
 
-    
+
 
     <div class="page-content">
         <div class="info-blurb">
             <p>Here are some tools for working with base64 values that I use often.</p>
-            <p>All of them are purely client-side Javascript and work from your computer. No data is sent anywhere else or
+            <p>All of them are purely client-side Javascript and work from your computer. No data is sent anywhere else
+                or
                 to any other servers.</p>
         </div>
 
@@ -50,35 +56,33 @@ https://stackoverflow.com/questions/36280818/how-to-convert-file-to-base64-in-ja
                 <span>Encode file</span>
             </div>
             <div class="tab-select" id="tab-select-viewbase64image" onclick="changeTab('viewbase64image')">
-                <span>View Base64 image</span>
+                <span>View image from base64</span>
             </div>
         </div>
         <div class="tab" id="tab-encodestring">
-            <h3>Encode Base64</h3>
+            <h3>Encode a string to base64</h3>
             <p>
             <div>Input</div>
-            <textarea id="strencode-input"></textarea>
+            <textarea id="strencode-input" spellcheck="false"></textarea>
             </p>
-            <button
-                onclick="myFormEncodeString()">Encode</button>
+            <button onclick="myFormEncodeString()">Encode</button>
 
             <p>
             <div>Output</div>
-            <textarea id="strencode-output" readonly></textarea>
+            <textarea id="strencode-output" readonly spellcheck="false"></textarea>
             </p>
         </div>
 
         <div class="tab" id="tab-decodestring" style="display: none;">
-            <h3>Decode Base64</h3>
+            <h3>Decode base64 back into a string</h3>
             <p>
             <div>Input</div>
-            <textarea id="strdecode-input"></textarea>
+            <textarea id="strdecode-input" spellcheck="false"></textarea>
             </p>
-            <button
-                onclick="myFormDecodeString()">Decode</button>
+            <button onclick="myFormDecodeString()">Decode</button>
             <p>
             <div>Output</div>
-            <textarea id="strdecode-output" readonly></textarea>
+            <textarea id="strdecode-output" spellcheck="false" readonly></textarea>
             </p>
         </div>
 
@@ -87,8 +91,7 @@ https://stackoverflow.com/questions/36280818/how-to-convert-file-to-base64-in-ja
 
             <p>
             <div>Input</div>
-            <input id="fileencode-input" type="file"
-                onchange="myFormEncodeFile(this)"></input>
+            <input id="fileencode-input" type="file" onchange="myFormEncodeFile(this)"></input>
             </p>
             <p>
             <div>Output</div>
@@ -97,13 +100,12 @@ https://stackoverflow.com/questions/36280818/how-to-convert-file-to-base64-in-ja
         </div>
 
         <div class="tab" id="tab-viewbase64image" style="display: none;">
-            <h3>View Base64 image</h3>
+            <h3>View image from base64</h3>
             <p>
             <div>Input</div>
             <textarea id="imgdecode-input"></textarea>
             </p>
-            <button
-                onclick="myFormShowImage()">Read</button>
+            <button onclick="myFormShowImage()">Read</button>
             <p>
             <div>Image</div>
             <img id="imgdecode-output" src=""
@@ -111,14 +113,6 @@ https://stackoverflow.com/questions/36280818/how-to-convert-file-to-base64-in-ja
             </p>
         </div>
     </div>
-
-    <footer class="page-footer">
-        <span>By David McDonald 2021 |
-            <a href="http://www.davidmac.pro" target="_blank">Web</a> |
-            <a href="https://github.com/towerofpower256" target="_blank">Github</a>
-        </span>
-    </footer>
-
 
     <script src="./scripts.js"></script>
 </body>

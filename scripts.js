@@ -2,9 +2,9 @@ function myFormEncodeString() {
     var r = "";
     try {
         var r = b64EncodeUnicode(document.getElementById('strencode-input').value);
-        
+
     } catch (ex) {
-        r = ""+ex;
+        r = "" + ex;
     }
     document.getElementById('strencode-output').value = r;
 }
@@ -14,13 +14,13 @@ function myFormDecodeString() {
     try {
         r = b64DecodeUnicode(document.getElementById('strdecode-input').value);
     } catch (ex) {
-        r = ""+ex;
+        r = "" + ex;
     }
     document.getElementById('strdecode-output').value = r;
 }
 
 function myFormShowImage() {
-    document.getElementById('imgdecode-output').src = 'data:image/png;base64,'+document.getElementById('imgdecode-input').value
+    document.getElementById('imgdecode-output').src = 'data:image/png;base64,' + document.getElementById('imgdecode-input').value
 }
 
 function myFormEncodeFile(input) {
@@ -28,16 +28,20 @@ function myFormEncodeFile(input) {
     outputEl.value = "Encoding...";
     try {
         b64FileAsync(input.files[0])
-        .then(function(result){
-            outputEl.value = getContentFromDataURL(result);
-        });
+            .then(function (result) {
+                outputEl.value = getContentFromDataURL(result);
+            });
     } catch (ex) {
         outputEl.value(ex);
     }
-    
+
 }
 
+// Links about base64 encoding and decoding in javascript.
 // https://stackoverflow.com/questions/30106476/using-javascripts-atob-to-decode-base64-doesnt-properly-decode-utf-8-strings
+// https://stackoverflow.com/questions/30106476/using-javascripts-atob-to-decode-base64-doesnt-properly-decode-utf-8-strings
+// https://developer.mozilla.org/en-US/docs/Glossary/Base64#the_unicode_problem
+
 
 function b64EncodeUnicode(str) {
     return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function (match, p1) {
@@ -47,13 +51,11 @@ function b64EncodeUnicode(str) {
 
 function b64DecodeUnicode(str) {
     // Going backwards: from bytestream, to percent-encoding, to original string.
-    return decodeURIComponent(atob(str)
-        .replace(/\W/g, "")
-        .split('')
-        .map(function (c) {
+    return decodeURIComponent(atob(str).split('').map(function (c) {
         return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
     }).join(''));
 }
+
 
 // Base64 a file
 function b64FileAsync(file) {
@@ -78,17 +80,17 @@ function getContentFromDataURL(a) {
  */
 function changeTab(tabName) {
     var tabs = document.getElementsByClassName("tab");
-    for (var i=0; i < tabs.length; i++) {
+    for (var i = 0; i < tabs.length; i++) {
         var tabElem = tabs[i];
         var tabId = tabElem.id;
-        tabElem.style.display = (tabId == "tab-"+tabName ? "block" : "none");
+        tabElem.style.display = (tabId == "tab-" + tabName ? "block" : "none");
     }
 
     var tabSelectors = document.getElementsByClassName("tab-select");
-    for (var i=0; i < tabSelectors.length; i++) {
+    for (var i = 0; i < tabSelectors.length; i++) {
         var tabSelectorElem = tabSelectors[i];
         var tabSelectorId = tabSelectorElem.id;
-        if (tabSelectorId == "tab-select-"+tabName) {
+        if (tabSelectorId == "tab-select-" + tabName) {
             tabSelectorElem.classList.add("active");
         } else {
             tabSelectorElem.classList.remove("active");

@@ -37,8 +37,8 @@ button {
     align-items: center; /* align vertical */
 }
 
-.tab-select-container span:last-child {
-    border-right: none;
+.tab-select-container div.tab-select:first-child {
+    border-left: solid 2px black;
 }
 
 .tab-select:hover {
